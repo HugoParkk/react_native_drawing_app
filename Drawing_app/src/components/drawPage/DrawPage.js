@@ -9,15 +9,17 @@ import {
 } from 'react-native';
 
 const DrawPage = () => {
+  const randomStr = Math.random().toString(36).substr(2, 11);
+
   return (
     <>
-      <Text style={styles.drawPage}>drawPage</Text>
+      <Text>{randomStr}</Text>
     </>
   );
 };
 
 const styles = StyleSheet.create({
-  drawPage: {color: 'yellow'},
+
 });
 
 export default DrawPage;

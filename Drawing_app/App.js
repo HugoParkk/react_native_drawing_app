@@ -1,4 +1,5 @@
 import React from 'react';
+import 'react-native-gesture-handler';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,25 +7,49 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
 } from 'react-native';
-import DrawPage from './components/drawPage/DrawPage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import PropTypes from 'prop-types';
+import DrawPage from './src/components/drawPage/DrawPage';
+import { color } from 'react-native-reanimated';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+
+const Stack = createStackNavigator();
 
 const App = () => {
+  const test = 'test';
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <Text style={styles.red}>red</Text>
-        <Text style={styles.blue}>blue</Text>
-        <DrawPage></DrawPage>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <StatusBar translucent backgroundColor="transparent" />
+      <Stack.Navigator
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#DBB0FC',
+          },
+          headerTintColor: '#000',
+          headerTitleStyle: {
+            // fontWeight: 'bold',
+          },
+          headerTitleAlign: 'center',
+        }}>
+        <Stack.Screen
+          name="DrawPage"
+          component={DrawPage}
+          options={{
+            headerRight: () => (
+              <Button
+                onPress={() => alert('This is a button!')}
+                title="asdf"
+                color="transparent"
+              />
+            ),
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  red: {color: 'red'},
-  blue: {color: 'blue'},
-});
 
 export default App;
