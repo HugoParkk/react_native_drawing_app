@@ -5,6 +5,7 @@ import {
   StyleSheet,
   ScrollView,
   View,
+  TouchableOpacity,
   Text,
   StatusBar,
   Button,
@@ -12,21 +13,21 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import PropTypes from 'prop-types';
-import DrawPage from './src/components/drawPage/DrawPage';
-import { color } from 'react-native-reanimated';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import DrawPage from './src/components/DrawPage';
+import Modal from './src/components/CreateRoom';
 
 const Stack = createStackNavigator();
 
-const App = () => {
-  const test = 'test';
+const App = (props) => {
+  const {navigation} = props;
   return (
     <NavigationContainer>
       <StatusBar translucent backgroundColor="transparent" />
       <Stack.Navigator
         screenOptions={{
           headerStyle: {
-            backgroundColor: '#DBB0FC',
+            backgroundColor: '#CCD1FF',
           },
           headerTintColor: '#000',
           headerTitleStyle: {
@@ -34,22 +35,26 @@ const App = () => {
           },
           headerTitleAlign: 'center',
         }}>
-        <Stack.Screen
-          name="DrawPage"
-          component={DrawPage}
-          options={{
-            headerRight: () => (
-              <Button
-                onPress={() => alert('This is a button!')}
-                title="asdf"
-                color="transparent"
-              />
-            ),
-          }}
-        />
+        <Stack.Screen name="Random Draw" component={DrawPage} />
+        <Stack.Screen name="Modal" component={Modal} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
+
+// const styles = StyleSheet.create({
+//   button: {
+//     width: 50,
+//     height: 50,
+//     backgroundColor: '#CCD1FF',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     borderRadius: 500,
+//     margin: 10,
+//   },
+//   text: {
+//     color: '#fff',
+//   },
+// });
 
 export default App;
