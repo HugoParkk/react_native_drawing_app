@@ -29,11 +29,11 @@ const App = (props) => {
           headerStyle: {
             backgroundColor: '#CCD1FF',
           },
-          headerTintColor: '#000',
           headerTitleStyle: {
             // fontWeight: 'bold',
           },
           headerTitleAlign: 'center',
+          headerTintColor: 'white',
         }}>
         <Stack.Screen name="Random Draw" component={DrawPage} />
         <Stack.Screen name="Modal" component={Modal} />
