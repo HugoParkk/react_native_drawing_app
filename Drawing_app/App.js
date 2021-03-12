@@ -10,10 +10,10 @@ import {
   StatusBar,
   Button,
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 import PropTypes from 'prop-types';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 import DrawPage from './src/components/DrawPage';
 import Modal from './src/components/CreateRoom';
 
