@@ -7,6 +7,7 @@ const socket = io('http://localhost:3002/');
 
 const CreateRoom = ({navigation}) => {
   const [roomName, setRoomName] = useState('testRoom');
+  
   const [roomNameValid, setRoomNameValid] = useState(false);
 
   const roomNameHandler = (text) => {
