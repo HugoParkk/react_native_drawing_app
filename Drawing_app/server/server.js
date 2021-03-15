@@ -13,7 +13,7 @@ app.use(cors());
 // app.use('/', route);
 //////////////////////////////////////////////////
 
-io.on('connection', (socket) => {
+io.sockets.on('connection', (socket) => {
   console.log('==============');
   console.log('소켓 접속 성공');
   console.log('==============');
