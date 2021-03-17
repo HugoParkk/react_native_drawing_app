@@ -13,9 +13,10 @@ app.use(cors());
 // app.use('/', route);
 //////////////////////////////////////////////////
 
-io.sockets.on('connection', (socket) => {
+io.on('connection', (socket) => {
   console.log('==============');
   console.log('소켓 접속 성공');
+  console.log(`${socket.id}`);
   console.log('==============');
 
   socket.on('roomJoin', (roomName) => {
@@ -31,6 +32,6 @@ io.sockets.on('connection', (socket) => {
   // socket.on("alert", ())
 });
 
-http.listen(port, () => {
-  console.log(`express is running on ${port}`);
+io.listen(port, () => {
+  console.log(`socket is running on ${port}`);
 });

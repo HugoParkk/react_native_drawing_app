@@ -10,15 +10,21 @@ import {
 import AntIcons from 'react-native-vector-icons/AntDesign';
 
 import io from 'socket.io-client';
-
-const socket = io.connect('http://localhost:3002/');
+const socket = io('192.168.0.6:3002');
 
 const CreateRoom = ({navigation}) => {
   const [roomName, setRoomName] = useState('');
+  const [sendRoomName, setSendRoomName] = useState('');
+
+  useEffect(() => {
+    console.log(sendRoomName, '==== Editted');
+    socket.on('connect');
+    socket.emit('roomJoin', sendRoomName);
+  }, [sendRoomName]);
 
   const roomNameHandler = () => {
-    socket.emit('roomJoin', roomName);
-    console.log(roomName, 'test');
+    setSendRoomName(roomName);
+    // console.log(sendRoomName, '==== Editted');
   };
 
   return (
