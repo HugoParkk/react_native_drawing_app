@@ -15,6 +15,7 @@ app.use(cors());
 
 io.on('connection', (socket) => {
   console.log('==============');
+  
   console.log('소켓 접속 성공');
   console.log(`${socket.id}`);
   console.log('==============');
